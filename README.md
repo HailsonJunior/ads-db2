@@ -1,1 +1,1 @@
-# ads-db2
+# terraform-azurerm-mysqldb
