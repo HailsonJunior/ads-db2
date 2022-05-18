@@ -32,8 +32,7 @@ resource "azurerm_mysql_database" "db2_mysql_database" {
 }
 
 resource "azurerm_mysql_firewall_rule" "db_firewall" {
-  count               = 2
-  name                = "rule-${count.index + 1}"
+  name                = "rule1"
   resource_group_name = azurerm_resource_group.ads_resource_group.name
   server_name         = azurerm_mysql_server.db2_mysql_server.name
   start_ip_address    = chomp(data.http.myip.body)
