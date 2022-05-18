@@ -36,6 +36,6 @@ resource "azurerm_mysql_firewall_rule" "db_firewall" {
   name                = "rule-${count.index + 1}"
   resource_group_name = azurerm_resource_group.ads_resource_group.name
   server_name         = azurerm_mysql_server.db2_mysql_server.name
-  start_ip_address    = element(var.allowed-ips, count.index)
-  end_ip_address      = element(var.allowed-ips, count.index)
+  start_ip_address    = chomp(data.http.myip.body)
+  end_ip_address      = chomp(data.http.myip.body)
 }
